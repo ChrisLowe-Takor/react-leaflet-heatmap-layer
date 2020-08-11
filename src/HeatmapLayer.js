@@ -294,6 +294,9 @@ export default withLeaflet(class HeatmapLayer extends MapLayer {
   }
 
   redraw(): void {
+    if (!this.props.leaflet || !this.props.leaflet.map) {
+      return;
+    }
     const r = this._heatmap._r;
     const size = this.props.leaflet.map.getSize();
 
